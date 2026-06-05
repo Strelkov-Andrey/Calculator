@@ -35,12 +35,21 @@ document
             period,
             sum
         );
+        const data = JSON.parse(
+            localStorage.getItem('calcResult')
+        );
 
-        localStorage.setItem(
-    'calcResult',
-    JSON.stringify(result)
-);
+        const results = [
+            { name: 'СБП', value: data.res_sbp },
+            { name: 'Эквайринг', value: data.res_eq },
+            { name: 'Цифровой рубль', value: data.res_dr }
+        ];
 
+        results.sort((a, b) => a.value - b.value);
+        const winner = results[0];
+        const second = results[1];
+        const third = results[2];
+        
         window.location.href = 'result.html';
     });
 function calculate(type, period, sum){
@@ -72,5 +81,13 @@ function calculate(type, period, sum){
         return {res_sbp,res_dr,res_eq};
   default:
     console.log("Error");
+}
+function sort(val1,val2,val3)
+{
+    if (val1 > val2) [val1, val2] = [val2, val1];
+    if (val2 > val3) [val2, val3] = [val3, val2];
+    if (val1 > val2) [val1, val2] = [val2, val1];
+
+    return [val1, val2, val3];
 }
 }

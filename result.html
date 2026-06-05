@@ -7,47 +7,100 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<div class="page-header">
 
+    <a href="index.html"
+       class="back-link-top">
+        ← Новый расчёт
+    </a>
+
+
+</div>
 <div class="container">
     <div class="calculator-card result-card">
 
         <h1>Итоги расчёта</h1>
 
-        <div class="info-block">
-            <span>СБП</span>
-            <strong id="sbpResult"></strong>
+    <div class="results-row">
+
+    <div class="info-block side-card">
+        <span id="nameLeft"></span>
+        <strong id="valueLeft"></strong>
+
+        <div class="result-comment"
+            id="commentLeft">
         </div>
-
-        <div class="info-block">
-            <span>Эквайринг</span>
-            <strong id="eqResult"></strong>
-        </div>
-
-        <div class="info-block">
-            <span>ЦР</span>
-            <strong id="drResult"></strong>
-        </div>
-
-        <a href="index.html" class="back-link">
-            Новый расчёт
-        </a>
-
     </div>
+
+    <div class="info-block winner-card">
+        <span id="nameCenter"></span>
+        <strong id="valueCenter"></strong>
+
+        <div class="result-comment"
+            id="commentCenter">
+        </div>
+    </div>
+
+    <div class="info-block side-card">
+        <span id="nameRight"></span>
+        <strong id="valueRight"></strong>
+
+        <div class="result-comment"
+            id="commentRight">
+        </div>
+    </div>
+
+</div>
 </div>
 
 <script>
-  const data = JSON.parse(
+const data = JSON.parse(
     localStorage.getItem('calcResult')
 );
 
-document.getElementById('sbpResult').textContent =
-    data.res_sbp.toFixed(2) + ' ₽';
+const results = [
+    {
+        name: 'СБП',
+        value: data.res_sbp
+    },
+    {
+        name: 'Эквайринг',
+        value: data.res_eq
+    },
+    {
+        name: 'Цифровой рубль',
+        value: data.res_dr
+    }
+];
 
-document.getElementById('eqResult').textContent =
-    data.res_eq.toFixed(2) + ' ₽';
+results.sort((a, b) => a.value - b.value);
 
-document.getElementById('drResult').textContent =
-    data.res_dr.toFixed(2) + ' ₽';
+document.getElementById('nameCenter').textContent =
+    results[0].name;
+
+document.getElementById('valueCenter').textContent =
+    results[0].value.toFixed(2) + ' ₽';
+
+document.getElementById('nameLeft').textContent =
+    results[1].name;
+
+document.getElementById('valueLeft').textContent =
+    results[1].value.toFixed(2) + ' ₽';
+
+document.getElementById('nameRight').textContent =
+    results[2].name;
+
+document.getElementById('valueRight').textContent =
+    results[2].value.toFixed(2) + ' ₽';
+
+document.getElementById('commentCenter').textContent =
+    'Наиболее выгодный вариант для выбранных параметров.';
+
+document.getElementById('commentLeft').textContent =
+    'Альтернативный способ расчётов.';
+
+document.getElementById('commentRight').textContent =
+    'Наименее выгодный вариант по результатам расчёта.';
 </script>
 
 </body>
