@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Итоги расчёта</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <div class="calculator-card result-card">
+
+        <h1>Итоги расчёта</h1>
+
+        <div class="info-block">
+            <span>СБП</span>
+            <strong id="sbpResult"></strong>
+        </div>
+
+        <div class="info-block">
+            <span>Эквайринг</span>
+            <strong id="eqResult"></strong>
+        </div>
+
+        <div class="info-block">
+            <span>ЦР</span>
+            <strong id="drResult"></strong>
+        </div>
+
+        <a href="preview.html" class="back-link">
+            Новый расчёт
+        </a>
+
+    </div>
+</div>
+
+<script>
+  const data = JSON.parse(
+    localStorage.getItem('calcResult')
+);
+
+document.getElementById('sbpResult').textContent =
+    data.res_sbp.toFixed(2) + ' ₽';
+
+document.getElementById('eqResult').textContent =
+    data.res_eq.toFixed(2) + ' ₽';
+
+document.getElementById('drResult').textContent =
+    data.res_dr.toFixed(2) + ' ₽';
+</script>
+
+</body>
+</html>
