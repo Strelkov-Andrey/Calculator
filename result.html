@@ -7,15 +7,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div class="page-header">
 
-    <a href="index.html"
-       class="back-link-top">
-        ← Новый расчёт
-    </a>
-
-
-</div>
 <div class="container">
     <div class="calculator-card result-card">
 
@@ -55,6 +47,32 @@
 
 
 </div>
+<div class="calculation-summary">
+
+    <div class="summary-title">
+        Параметры расчёта
+    </div>
+
+    <div class="summary-grid">
+
+        <div class="summary-item">
+            <span class="summary-label">Сумма операций</span>
+            <span class="summary-value" id="summaryAmount"></span>
+        </div>
+
+        <div class="summary-item">
+            <span class="summary-label">Период</span>
+            <span class="summary-value" id="summaryPeriod"></span>
+        </div>
+
+        <div class="summary-item">
+            <span class="summary-label">Вид деятельности</span>
+            <span class="summary-value" id="summaryType"></span>
+        </div>
+
+    </div>
+
+</div>
     <div class="result-disclaimer">
     Расчёт выполнен на основании введённых данных и носит справочный характер.
     Полученные значения являются приблизительными и не являются официальным
@@ -62,28 +80,81 @@
     </div>
     
 </div>
-<div class="sbp-background"></div>
+<div class="result-actions">
+
+    <a
+        href="index.html"
+        class="action-btn secondary-btn"
+    >
+        Новый расчёт
+    </a>
+
+    <a
+        href="landing.html"
+        class="action-btn primary-btn"
+    >
+        На главную
+    </a>
+
+</div>
 <script>
 const data = JSON.parse(
     localStorage.getItem('calcResult')
 );
+document.getElementById('summaryAmount').textContent =
+    data.amountFormatted;
+
+document.getElementById('summaryPeriod').textContent =
+    data.periodName;
+
+document.getElementById('summaryType').textContent =
+    data.typeName;
 
 const results = [
     {
         name: 'СБП',
-        value: data.res_sbp
+        value: data.result.res_sbp
     },
     {
         name: 'Эквайринг',
-        value: data.res_eq
+        value: data.result.res_eq
     },
     {
         name: 'Цифровой рубль',
-        value: data.res_dr
+        value: data.result.res_dr
     }
 ];
 
-results.sort((a, b) => a.value - b.value);
+
+document.getElementById('nameCenter').textContent =
+    results[0].name;
+
+document.getElementById('valueCenter').textContent =
+    results[0].value.toFixed(2) + ' ₽';
+
+document.getElementById('nameLeft').textContent =
+    results[1].name;
+
+document.getElementById('valueLeft').textContent =
+    results[1].value.toFixed(2) + ' ₽';
+
+document.getElementById('nameRight').textContent =
+    results[2].name;
+
+document.getElementById('valueRight').textContent =
+    results[2].value.toFixed(2) + ' ₽';
+
+document.getElementById('commentCenter').textContent =
+    'Наиболее выгодный вариант для выбранных параметров.';
+
+document.getElementById('commentLeft').textContent =
+    'Облагается НДС';
+
+document.getElementById('commentRight').textContent =
+    'Альтернативный способ расчётов. Будет доступен с 1 сентября 2026 года.';
+    
+
+/*results.sort((a, b) => a.value - b.value);
 
 document.getElementById('nameCenter').textContent =
     results[0].name;
@@ -110,7 +181,7 @@ document.getElementById('commentLeft').textContent =
     'Альтернативный способ расчётов.';
 
 document.getElementById('commentRight').textContent =
-    'Наименее выгодный вариант по результатам расчёта.';
+    'Наименее выгодный вариант по результатам расчёта.';*/
 </script>
 
 </body>

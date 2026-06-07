@@ -32,32 +32,15 @@ body {
     font-family: Inter, Arial, sans-serif;
 
     background:
-
-        radial-gradient(
-            circle at 10% 15%,
-            rgba(0,181,240,.22),
-            transparent 28%
-        ),
-
-        radial-gradient(
-            circle at 90% 15%,
-            rgba(0,208,132,.18),
-            transparent 32%
-        ),
-
-        radial-gradient(
-            circle at 50% 100%,
-            rgba(0,102,255,.14),
-            transparent 35%
-        ),
-
         linear-gradient(
             180deg,
-            #f8fbff 0%,
-            #edf5ff 100%
+            #FAF5EC 0%,
+            #F7F1E5 100%
         );
 
     color: var(--text);
+
+    padding: 24px;
 }
 
 .container {
@@ -71,7 +54,7 @@ body {
 
 .calculator-card {
 
-    background: #ffffff;
+    background: rgba(255,255,255,.95);
 
     border-radius: 32px;
 
@@ -80,20 +63,9 @@ body {
     border: 1px solid #e2e8f0;
 
     box-shadow:
-        0 12px 40px rgba(15,23,42,.06);
+        0 12px 40px rgba(0,0,0,.05);
 }
-.calculator-card,
-.result-card {
 
-    background: rgba(255,255,255,.96);
-
-    border: 1px solid rgba(255,255,255,.95);
-
-    box-shadow:
-        0 20px 50px rgba(15,23,42,.08);
-
-    border-radius: 32px;
-}
 
 .logo {
     width: 60px;
@@ -180,10 +152,15 @@ input[type="text"] {
 }
 #amount:focus {
 
-    border-color: #0066ff;
+    outline: none;
+
+    border-color: #00BBEE;
 
     box-shadow:
-        0 0 0 4px rgba(0,102,255,.1);
+        0 0 0 4px rgba(0,187,238,.15),
+        0 0 20px rgba(0,136,187,.15);
+
+    background: #ffffff;
 }
 #amount,
 .period-selector,
@@ -207,33 +184,47 @@ option {
 
 .btn {
 
+    width: 100%;
+
     height: 72px;
-
-    background:
-        linear-gradient(
-            90deg,
-            #00b5f0,
-            #00d084
-        );
-
-    color: white;
 
     border: none;
 
+    border-radius: 24px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #0088BB,
+            #00BBEE
+        );
+
+    color: #fff;
+
+    font-size: 20px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
     box-shadow:
-        0 10px 25px rgba(0,181,240,.25);
+        0 10px 30px rgba(109,93,246,.28);
+
+    transition: all .25s ease;
 }
 
 .btn:hover {
 
     background:
         linear-gradient(
-            90deg,
-            #00c7ff,
-            #00e59c
+            135deg,
+            #0099D4,
+            #33C9F3
         );
 
     transform: translateY(-2px);
+    box-shadow:
+        0 16px 35px rgba(109,93,246,.35);
 }
 
 .btn:active {
@@ -244,7 +235,10 @@ option {
 
 .result-card {
 
-    background: #ffffff;
+    background: rgba(255,255,255,.95);
+
+    box-shadow:
+        0 12px 40px rgba(0,0,0,.05);
 
     min-height: 650px;
 
@@ -268,53 +262,6 @@ option {
     -webkit-text-fill-color: transparent;
 }
 
-.back-link-top {
-
-    display: inline-flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    padding: 12px 20px;
-
-    border-radius: 14px;
-
-    background:
-        linear-gradient(
-            90deg,
-            #00b5f0,
-            #00d084
-        );
-
-    color: white;
-
-    font-weight: 600;
-
-    text-decoration: none;
-
-    border: none;
-
-    box-shadow:
-        0 8px 20px rgba(0,181,240,.25);
-
-    transition: .25s ease;
-}
-
-.back-link-top:hover {
-
-    background:
-        linear-gradient(
-            90deg,
-            #00c7ff,
-            #00e59c
-        );
-
-    transform: translateY(-2px);
-
-    box-shadow:
-        0 12px 28px rgba(0,181,240,.35);
-}
 
 /* Планшеты */
 
@@ -342,6 +289,15 @@ option {
         flex-direction: column;
 
         gap: 12px;
+    }
+    .result-actions {
+
+        flex-direction: column;
+    }
+
+    .action-btn {
+
+        width: 100%;
     }
 }
 
@@ -501,10 +457,10 @@ option {
 .type-list::-webkit-scrollbar-thumb {
     background: linear-gradient(
         180deg,
-        #60a5fa,
-        #3b82f6
+        #FFCC88,
+        #FFCC88
     );
-    border-radius: 20px;
+    border-radius: 999px;
 }
 
 .type-list::-webkit-scrollbar-thumb:hover {
@@ -516,7 +472,7 @@ option {
 }
 .type-list {
     scrollbar-width: thin;
-    scrollbar-color: #3b82f6 rgba(255,255,255,0.05);
+    scrollbar-color: #60a5fa rgba(255,255,255,0.05);
 }
 .period-selector {
     
@@ -552,11 +508,15 @@ option {
 }
 .period-selector input:checked + .period-btn {
 
-    background: #0066ff;
+    background: linear-gradient(
+            135deg,
+            #0088BB,
+            #00BBEE
+        );
 
-    color: white;
+    color: #ffffff;
 
-    border-color: #0066ff;
+    border-color: #00BBEE;
 
     box-shadow: none;
 }
@@ -598,11 +558,15 @@ option {
 }
 .radio-item input[type="radio"]:checked + span {
 
-    background: #eaf3ff;
+    background: linear-gradient(
+            90deg,
+            rgba(0,136,187,.15),
+            rgba(0,187,238,.25)
+        );;
 
-    border-color: #05b3ff;
+    border-color: #00BBEE;
 
-    color: #003f8c;
+    color: #000000;
 }
 .results-row {
 
@@ -683,24 +647,7 @@ option {
         line-height: 1.6;
     }
 }
-.back-link-top {
 
-    background: #ffffff;
-
-    color: #1f2937;
-
-    border: 1px solid #e2e8f0;
-
-    box-shadow:
-        0 4px 16px rgba(15,23,42,.05);
-}
-
-.back-link-top:hover {
-
-    background: rgba(255,255,255,0.15);
-
-    transform: translateY(-1px);
-}
 .result-comment {
 
     color: #dbe4f0;
@@ -792,63 +739,304 @@ option {
     box-shadow:
         0 6px 18px rgba(251, 191, 36, 0.08);
 }
-.sbp-background {
+.calculation-summary {
 
-    position: fixed;
+    width: 100%;
 
-    inset: 0;
+    margin-top: 28px;
 
-    pointer-events: none;
+    padding: 24px;
 
-    z-index: -1;
+    background: rgba(255,255,255,.95);
 
-    overflow: hidden;
+    border: 1px solid #E8E2D6;
+
+    border-radius: 24px;
+
+    box-shadow:
+        0 8px 24px rgba(0,0,0,.04);
+}
+.summary-title {
+
+    font-size: 18px;
+
+    font-weight: 700;
+
+    color: #1F2937;
+
+    margin-bottom: 18px;
+}
+.summary-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(220px, 1fr));
+
+    gap: 16px;
+}
+.summary-item {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 6px;
+
+    padding: 16px;
+
+    background: #ffffff;
+
+    border: 1px solid #E8E2D6;
+
+    border-radius: 16px;
+}
+.summary-label {
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    text-transform: uppercase;
+
+    letter-spacing: .05em;
+
+    color: #64748B;
+}
+.summary-value {
+
+    font-size: 16px;
+
+    font-weight: 700;
+
+    color: #1F2937;
+
+    line-height: 1.4;
 }
 
-.sbp-background::before {
+        /* ---------------- */
+        /* ТАРИФЫ           */
+        /* ---------------- */
 
-    content: "";
+        .tariff-list {
 
-    position: absolute;
+            display: flex;
 
-    width: 500px;
-    height: 500px;
+            flex-direction: column;
 
-    top: -180px;
-    left: -180px;
+            gap: 12px;
+        }
 
-    border-radius: 50%;
+        .tariff-item {
 
-    background:
-        radial-gradient(
-            circle,
-            rgba(0,181,240,.30),
-            transparent 70%
-        );
+            padding: 14px 16px;
 
-    filter: blur(40px);
+            border-radius: 14px;
+
+            background: #FAF7F0;
+
+            border: 1px solid var(--border);
+        }
+
+        /* ---------------- */
+        /* ЦЕНТР            */
+        /* ---------------- */
+
+        .center-card {
+
+            align-items: center;
+
+            justify-content: center;
+
+            text-align: center;
+        }
+
+        .calculator-title {
+
+            font-size: 34px;
+
+            font-weight: 800;
+
+            margin-bottom: 20px;
+        }
+
+        .calculator-description {
+
+            font-size: 16px;
+
+            line-height: 1.6;
+
+            color: #64748B;
+
+            margin-bottom: 32px;
+
+            max-width: 450px;
+        }
+
+        .start-btn {
+
+            text-decoration: none;
+
+            color: white;
+
+            font-size: 18px;
+
+            font-weight: 700;
+
+            padding: 18px 36px;
+
+            border-radius: 22px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #0088BB,
+                    #00BBEE
+                );
+
+            box-shadow:
+                0 12px 25px rgba(0,136,187,.25);
+
+            transition: .25s ease;
+        }
+
+        .start-btn:hover {
+
+            transform: translateY(-2px);
+
+            box-shadow:
+                0 18px 35px rgba(0,136,187,.35);
+        }
+
+        /* ---------------- */
+        /* ЛОГОТИП          */
+        /* ---------------- */
+
+        .logo-container {
+
+            width: 220px;
+
+            height: 220px;
+
+            margin: 0 auto 24px;
+
+            border-radius: 24px;
+
+            border: 2px dashed #BFC9D4;
+
+            background: #FAF7F0;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            text-align: center;
+
+            color: #94A3B8;
+
+            font-size: 14px;
+        }
+
+        .sbp-link {
+
+            text-align: center;
+
+            margin-top: auto;
+        }
+
+        .sbp-link a {
+
+            color: var(--blue);
+
+            font-weight: 700;
+
+            text-decoration: none;
+        }
+
+        .sbp-link a:hover {
+
+            color: var(--cyan);
+        }
+
+        @media (max-width: 1000px) {
+
+            .cards {
+
+                grid-template-columns: 1fr;
+            }
+
+            .title {
+
+                font-size: 30px;
+            }
+
+            .calculator-title {
+
+                font-size: 28px;
+            }
+        }
+.result-actions {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 16px;
+
+    margin-top: 24px;
+
+    width: 100%;
 }
+.action-btn {
 
-.sbp-background::after {
+    min-width: 220px;
 
-    content: "";
+    padding: 16px 28px;
 
-    position: absolute;
+    border-radius: 20px;
 
-    width: 450px;
-    height: 450px;
+    text-decoration: none;
 
-    bottom: -150px;
-    right: -150px;
+    font-size: 16px;
 
-    border-radius: 50%;
+    font-weight: 700;
+
+    text-align: center;
+
+    transition: .25s ease;
+}
+.primary-btn {
+
+    color: white;
 
     background:
-        radial-gradient(
-            circle,
-            rgba(0,208,132,.25),
-            transparent 70%
+        linear-gradient(
+            135deg,
+            #0088BB,
+            #00BBEE
         );
 
-    filter: blur(40px);
+    box-shadow:
+        0 10px 25px rgba(0,136,187,.25);
+}
+.primary-btn:hover {
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 14px 32px rgba(0,136,187,.35);
+}
+.secondary-btn {
+
+    color: #0088BB;
+
+    background: white;
+
+    border: 2px solid #00BBEE;
+}
+.secondary-btn:hover {
+
+    background: rgba(0,187,238,.08);
 }

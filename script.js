@@ -37,23 +37,20 @@ document
         );
         localStorage.setItem(
             'calcResult',
-            JSON.stringify(result)
-        );
-        const data = JSON.parse(
-            localStorage.getItem('calcResult')
-        );
+            JSON.stringify({
+                result,
+             amountFormatted:
+            sum.toLocaleString('ru-RU') + ' ₽',
 
-        const results = [
-            { name: 'СБП', value: data.res_sbp },
-            { name: 'Эквайринг', value: data.res_eq },
-            { name: 'Цифровой рубль', value: data.res_dr }
-        ];
+        periodName:
+            getPeriod(period),
 
-        results.sort((a, b) => a.value - b.value);
-        const winner = results[0];
-        const second = results[1];
-        const third = results[2];
-        
+        typeName:
+            getType(type)
+    })
+            
+        );
+         
         window.location.href = 'result.html';
     });
 function calculate(type, period, sum){
@@ -86,12 +83,45 @@ function calculate(type, period, sum){
   default:
     console.log("Error");
 }
-function sort(val1,val2,val3)
-{
-    if (val1 > val2) [val1, val2] = [val2, val1];
-    if (val2 > val3) [val2, val3] = [val3, val2];
-    if (val1 > val2) [val1, val2] = [val2, val1];
+}
 
-    return [val1, val2, val3];
+function getType(type){
+    switch (type) {
+    case 2.1:
+        return "Образование"
+    case 2.2:
+        return "Благотворительность"
+    case 2.3:
+        return "Транспорт"
+    case 2.4:
+        return "Телеком"
+    case 2.5:
+        return "Потребительские товары"
+    case 2.6:
+        return "Медицина"
+    case 2.7:
+        return "Страхование"
+    case 2.8:
+        return "Инвестиционные фонды, УК, НПФ"
+    case 2.9:
+        return "Самозанятый"
+    case 3.1:
+        return "ЖКХ"
+    case 4.1:
+        return "Иное"
+  default:
+    console.log("Error");
+}
+}
+function getPeriod(period){
+    switch (period) {
+    case 1:
+        return "Месяц"
+    case 3:
+        return "Квартал"
+    case 12:
+        return "Год"
+  default:
+    console.log("Error");
 }
 }
