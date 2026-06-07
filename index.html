@@ -1,159 +1,218 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Калькулятор</title>
 
-    <!-- Подключение шрифта -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
-    <!-- Подключение CSS -->
+    <title>Калькулятор СБП</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+
+        :root {
+
+            --bg: #F7F1E5;
+
+            --card: #FFFFFF;
+
+            --text: #1F2937;
+
+            --blue: #0088BB;
+
+            --cyan: #00BBEE;
+
+            --yellow: #FFCC88;
+
+            --border: #E8E2D6;
+        }
+
+        * {
+
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+
+            min-height: 100vh;
+
+            background: var(--bg);
+
+            font-family: Inter, Arial, sans-serif;
+
+            color: var(--text);
+
+            padding: 32px;
+        }
+
+        .page {
+
+            max-width: 1400px;
+
+            margin: 0 auto;
+        }
+
+        .title {
+
+            text-align: center;
+
+            margin-bottom: 40px;
+
+            font-size: 38px;
+
+            font-weight: 800;
+        }
+
+        .cards {
+
+            display: grid;
+
+            grid-template-columns:
+                1fr
+                1.2fr
+                1fr;
+
+            gap: 24px;
+        }
+
+        .card {
+
+            background: var(--card);
+
+            border-radius: 28px;
+
+            border: 1px solid var(--border);
+
+            padding: 32px;
+
+            box-shadow:
+                0 10px 30px rgba(0,0,0,.05);
+
+            display: flex;
+
+            flex-direction: column;
+        }
+
+        .card h2 {
+
+            margin-bottom: 24px;
+
+            font-size: 22px;
+        }
+        
+
+    </style>
+
 </head>
+
 <body>
 
-    <div class="container">
-        <div class="calculator-card">
+<div class="page">
 
+    <h1 class="title">
+        Калькулятор оценки эффективности СБП
+    </h1>
 
-            <h1>Калькулятор</h1>
+    <div class="cards">
 
-            <p class="subtitle">
-                Заполните параметры для выполнения расчёта
-            </p>
+        <!-- ЛЕВЫЙ БЛОК -->
 
-            <form id="calculatorForm">
+        <div class="card">
 
-                <div class="form-group">
-    <label>Выберите Ваш вид деятельности</label>
+            <h2>Тарифы</h2>
 
-                    <div class="type-list">
+            <div class="tariff-list">
 
-                        <label class="radio-item">
-                            <input type="radio" name="type" value="2.1" checked>
-                            <span>Образование</span>
-                        </label>
-
-                        <label class="radio-item">
-                            <input type="radio" name="type" value="2.2">
-                            <span>Благотворительность</span>
-                        </label>
-
-                        <label class="radio-item">
-                            <input type="radio" name="type" value="2.3">
-                            <span>Транспорт</span>
-                        </label>
-
-                        <label class="radio-item">
-                            <input type="radio" name="type" value="2.4">
-                            <span>Телеком</span>
-                        </label>
-
-                        <label class="radio-item">
-                            <input type="radio" name="type" value="2.5">
-                            <span>Потребительские товары</span>
-                        </label>
-
-                        <label class="radio-item">
-                            <input type="radio" name="type" value="2.6">
-                            <span>Медицина</span>
-                        </label>
-
-                        <label class="radio-item">
-                            <input type="radio" name="type" value="2.7">
-                            <span>Страхование</span>
-                        </label>
-
-                        <label class="radio-item">
-                            <input type="radio" name="type" value="2.8">
-                            <span>Инвестиционные фонды, УК, НПФ</span>
-                        </label>
-
-                        <label class="radio-item">
-                            <input type="radio" name="type" value="2.9">
-                            <span>Самозанятый</span>
-                        </label>
-
-                        <label class="radio-item">
-                            <input type="radio" name="type" value="4.1">
-                            <span>ЖКХ</span>
-                        </label>
-
-                        <label class="radio-item">
-                            <input type="radio" name="type" value="3.1">
-                            <span>Иное</span>
-                        </label>
-
-                    </div>
+                <div class="tariff-item">
+                    Тариф 1
                 </div>
 
-                <div class="form-group">
-                <label>Период</label>
-
-                <div class="period-selector">
-
-                    <input
-                        type="radio"
-                        id="month"
-                        name="period"
-                        value="1"
-                        checked
-                    >
-
-                    <label for="month" class="period-btn">
-                        Месяц
-                    </label>
-
-                    <input
-                        type="radio"
-                        id="quarter"
-                        name="period"
-                        value="3"
-                    >
-
-                    <label for="quarter" class="period-btn">
-                        Квартал
-                    </label>
-
-                    <input
-                        type="radio"
-                        id="year"
-                        name="period"
-                        value="12"
-                    >
-
-                    <label for="year" class="period-btn">
-                        Год
-                    </label>
-
+                <div class="tariff-item">
+                    Тариф 2
                 </div>
+
+                <div class="tariff-item">
+                    Тариф 3
+                </div>
+
+                <div class="tariff-item">
+                    Тариф 4
+                </div>
+
+                <div class="tariff-item">
+                    Тариф 5
+                </div>
+
             </div>
 
-                <div class="form-group">
-                    <label for="amount">Введите среднюю выручку за месяц</label>
-                    <input
-                        type="text"
-                        id="amount"
-                        inputmode="numeric"
-                        oninput="this.value=this.value.replace(/[^0-9]/g,'')"
-                        placeholder="Например: 1000"
-                        required
-                    >
-                </div>
+        </div>
 
-                <button type="submit" class="btn">
-                    Рассчитать
-                </button>
+        <!-- ЦЕНТР -->
 
-            </form>
+        <div class="card center-card">
+
+            <div class="calculator-title">
+                Калькулятор СБП
+            </div>
+
+            <div class="calculator-description">
+
+                Рассчитайте ориентировочную стоимость
+                и сравните варианты обслуживания
+                с использованием системы быстрых платежей.
+
+            </div>
+
+            <a
+                href="calculator.html"
+                class="start-btn"
+            >
+                Перейти к расчёту
+            </a>
 
         </div>
+
+        <!-- ПРАВЫЙ БЛОК -->
+
+        <div class="card">
+
+            <h2>Система быстрых платежей</h2>
+
+            <div class="logo-container">
+
+               <img
+                src="images/logo_sbp.png"
+                alt="Логотип"
+                class="logo"
+                >
+
+            </div>
+
+            <div class="sbp-link">
+
+                Официальный сайт СБП<br><br>
+
+                <a
+                    href="https://sbp.nspk.ru/"
+                    target="_blank"
+                >
+                    sbp.nspk.ru
+                </a>
+
+            </div>
+
+        </div>
+
     </div>
 
-    <script src = "script.js"></script>
+</div>
 
 </body>
+
 </html>
