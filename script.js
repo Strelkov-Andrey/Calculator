@@ -35,6 +35,10 @@ document
             period,
             sum
         );
+        localStorage.setItem(
+            'calcResult',
+            JSON.stringify(result)
+        );
         const data = JSON.parse(
             localStorage.getItem('calcResult')
         );
