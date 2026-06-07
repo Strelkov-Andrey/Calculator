@@ -364,6 +364,30 @@ input:focus {
         font-size: 14px;
         word-break: break-word;
     }
+    .cards {
+        grid-template-columns: 1fr;
+    }
+
+    .card {
+        padding: 20px;
+    }
+
+    .title {
+        font-size: 28px;
+    }
+
+    .calculator-title {
+        font-size: 24px;
+    }
+
+    .logo-container {
+        height: 160px;
+    }
+
+    .start-btn {
+        width: 100%;
+        display: block;
+    }
 }
 
 .info-block span {
