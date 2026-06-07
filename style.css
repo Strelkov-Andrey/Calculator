@@ -94,20 +94,7 @@ label {
     font-weight: 500;
     color: var(--text-secondary);
 }
-select {
-    height: auto;
-    min-height: 56px;
-    padding: 12px 16px;
-    line-height: 1.4;
-    white-space: normal;
-}
 
-option {
-    white-space: normal;
-    word-wrap: break-word;
-}
-
-select,
 input[type="text"] {
 
     font-family: Inter, Arial, sans-serif;
@@ -157,16 +144,11 @@ input[type="text"] {
     width: 100%;
 }
 
-select:focus,
+
 input:focus {
     outline: none;
     border-color: var(--accent);
     box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.2);
-}
-
-option {
-    background: #0f172a;
-    color: white;
 }
 
 .btn {
@@ -236,18 +218,6 @@ option {
     padding: 40px;
 }
 
-.result-value {
-    margin: 30px 0;
-    font-size: 48px;
-    font-weight: 700;
-    background: linear-gradient(
-        135deg,
-        #60a5fa,
-        #93c5fd
-    );
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
 
 
 /* Планшеты */
@@ -271,12 +241,6 @@ option {
         padding: 20px;
     }
 
-    .page-header {
-
-        flex-direction: column;
-
-        gap: 12px;
-    }
     .result-actions {
 
         flex-direction: column;
@@ -308,11 +272,9 @@ option {
         font-size: 14px;
     }
 
-    select,
+
     input,
-    .btn,
-    .back-link,
-    .back-link-top {
+    .btn{
 
     font-family: Inter, Arial, sans-serif;
 
@@ -321,23 +283,6 @@ option {
     font-weight: 600;
     }   
 
-    .result-value {
-        font-size: 34px;
-    }
-}
-.info-block {
-
-    min-height: 320px;
-
-    padding: 24px;
-
-    border-radius: 20px;
-
-    display: flex;
-
-    flex-direction: column;
-
-    justify-content: space-between;
 }
 
 .info-block span {
@@ -376,59 +321,6 @@ option {
     border: 1px solid #dbe4f0;
 
     border-radius: 16px;
-}
-.type-card {
-    display: block;
-    cursor: pointer;
-}
-.type-card input[type="radio"] {
-    display: none;
-}
-.type-card-content {
-
-    padding: 16px 18px;
-
-    border-radius: 16px;
-
-    background: rgba(255,255,255,0.04);
-
-    border: 1px solid rgba(255,255,255,0.08);
-
-    color: var(--text);
-
-    line-height: 1.45;
-
-    transition: all .25s ease;
-
-    backdrop-filter: blur(20px);
-}
-.type-card:hover .type-card-content {
-
-    background: rgba(255,255,255,0.08);
-
-    border-color: rgba(255,255,255,0.15);
-
-    transform: translateY(-1px);
-}
-.type-card input[type="radio"]:checked
-+ .type-card-content {
-
-    background:
-        linear-gradient(
-            135deg,
-            rgba(59,130,246,.45),
-            rgba(96,165,250,.25)
-        );
-
-    border: 1px solid rgba(96,165,250,.8);
-
-    box-shadow:
-        0 0 0 1px rgba(96,165,250,.5),
-        0 12px 32px rgba(59,130,246,.3);
-
-    color: #ffffff;
-
-    font-weight: 500;
 }
 
 
@@ -566,12 +458,7 @@ option {
 
     width: 100%;
 }
-.side-card {
 
-    opacity: 1;
-
-    transform: none;
-}
 .winner-card {
 
     position: relative;
@@ -643,30 +530,20 @@ option {
 
     line-height: 1.6;
 }
-.page-header {
 
-    display: flex;
-
-    justify-content: space-between;
-
-    align-items: center;
-
-    margin-bottom: 24px;
-}
 .info-block {
-
     background: #ffffff;
-
     border: 1px solid #e2e8f0;
-
     border-radius: 20px;
 
     padding: 24px;
-    
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
     height: 100%;
-
     min-height: 260px;
-
 }
 .result-card .info-block span,
 .result-card .info-block strong,
@@ -915,14 +792,12 @@ option {
             height: 220px;
 
             margin: 0 auto 24px;
-            
+
             display: flex;
 
             align-items: center;
 
             justify-content: center;
-
-            text-align: center;
 
             color: #94A3B8;
 
