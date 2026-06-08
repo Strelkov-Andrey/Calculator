@@ -12,102 +12,6 @@
 
     <title>Калькулятор СБП</title>
     <link rel="stylesheet" href="style.css">
-    <style>
-
-        :root {
-
-            --bg: #F7F1E5;
-
-            --card: #FFFFFF;
-
-            --text: #1F2937;
-
-            --blue: #0088BB;
-
-            --cyan: #00BBEE;
-
-            --yellow: #FFCC88;
-
-            --border: #E8E2D6;
-        }
-
-        * {
-
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-
-            min-height: 100vh;
-
-            background: var(--bg);
-
-            font-family: Inter, Arial, sans-serif;
-
-            color: var(--text);
-
-            padding: 32px;
-        }
-
-        .page {
-
-            max-width: 1400px;
-
-            margin: 0 auto;
-        }
-
-        .title {
-
-            text-align: center;
-
-            margin-bottom: 40px;
-
-            font-size: 38px;
-
-            font-weight: 800;
-        }
-
-        .cards {
-
-            display: grid;
-
-            grid-template-columns:
-                1fr
-                1.2fr
-                1fr;
-
-            gap: 24px;
-        }
-
-        .card {
-
-            background: var(--card);
-
-            border-radius: 28px;
-
-            border: 1px solid var(--border);
-
-            padding: 32px;
-
-            box-shadow:
-                0 10px 30px rgba(0,0,0,.05);
-
-            display: flex;
-
-            flex-direction: column;
-        }
-
-        .card h2 {
-
-            margin-bottom: 24px;
-
-            font-size: 22px;
-        }
-        
-
-    </style>
 
 </head>
 
@@ -116,7 +20,7 @@
 <div class="page">
 
     <h1 class="title">
-        Калькулятор оценки эффективности СБП
+        Калькулятор расчета комиссий при оплате СБП
     </h1>
 
     <div class="cards">
@@ -124,33 +28,31 @@
         <!-- ЛЕВЫЙ БЛОК -->
 
         <div class="card">
-
-            <h2>Тарифы</h2>
+	    <h2 align="center">Тарифы Банка России</h2>
 
             <div class="tariff-list">
 
-                <div class="tariff-item">
-                    Тариф 1
+                <div class="logo-container">
+                <img
+                	src="images/10andmore.png"
+                	alt="Логотип"
+                	class="logo"
+                >
                 </div>
 
-                <div class="tariff-item">
-                    Тариф 2
-                </div>
+		<div class="sbp-link">
 
-                <div class="tariff-item">
-                    Тариф 3
-                </div>
+                Тарифы для организаций при оплате покупок<br><br>
 
-                <div class="tariff-item">
-                    Тариф 4
-                </div>
-
-                <div class="tariff-item">
-                    Тариф 5
-                </div>
-
+                <a
+                    href="http://www.cbr.ru/psystem/sfp/"
+                    target="_blank"
+                >
+                    СБП
+                </a>
+		
             </div>
-
+	</div>
         </div>
 
         <!-- ЦЕНТР -->
@@ -158,14 +60,14 @@
         <div class="card center-card">
 
             <div class="calculator-title">
-                Калькулятор СБП
+                Калькулятор
             </div>
 
             <div class="calculator-description">
 
                 Рассчитайте ориентировочную стоимость
                 и сравните варианты обслуживания
-                с использованием системы быстрых платежей.
+                с использованием системы быстрых платежей и цифрового рубля.
 
             </div>
 
@@ -182,12 +84,12 @@
 
         <div class="card">
 
-            <h2>Система быстрых платежей</h2>
+            <h2 align="center">Система быстрых платежей</h2>
 
             <div class="logo-container">
 
                <img
-                src="images/logo_sbp.png"
+                src="images/logo_sbp_2.png"
                 alt="Логотип"
                 class="logo"
                 >
@@ -210,7 +112,11 @@
         </div>
 
     </div>
-
+<div class="main-disclaimer">
+	Калькулятор рассчитывает комиссию исходя из максимально установленных тарифов 
+	в СБП (0,2% / 0,4% / 0,7%) и Цифровом рубле (0,2% / 0,3%), но экономия может быть выше, т.к. комиссия за одну 
+	транзакцию не может превышать 1500 руб.(не более 10 руб. за ЖКУ). 
+    </div>
 </div>
 
 </body>

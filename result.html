@@ -17,10 +17,13 @@
 
     <div class="info-block side-card">
         <span id="nameLeft"></span>
+
         <strong id="valueLeft"></strong>
 
-        <div class="result-comment"
-            id="commentLeft">
+        <div class="card-footer">
+            <div class="tariff-value" id="tariffLeft"></div>
+
+            <div class="result-comment" id="commentLeft"></div>
         </div>
     </div>
 
@@ -31,8 +34,13 @@
         <span id="nameCenter"></span>
         <strong id="valueCenter"></strong>
 
-        <div class="result-comment"
-            id="commentCenter">
+
+        <div class="card-footer">
+
+            <div class="tariff-value" id="tariffCenter"></div>
+
+            <div class="result-comment" id="commentCenter"></div>
+
         </div>
     </div>
 
@@ -40,8 +48,12 @@
         <span id="nameRight"></span>
         <strong id="valueRight"></strong>
 
-        <div class="result-comment"
-            id="commentRight">
+        <div class="card-footer">
+
+            <div class="tariff-value" id="tariffRight"></div>
+
+            <div class="result-comment-right" id="commentRight"></div>
+
         </div>
     </div>
 
@@ -111,18 +123,21 @@ document.getElementById('summaryType').textContent =
     data.typeName;
 
 const results = [
-    {
-        name: 'СБП',
-        value: data.result.res_sbp
-    },
-    {
-        name: 'Эквайринг',
-        value: data.result.res_eq
-    },
-    {
-        name: 'Цифровой рубль',
-        value: data.result.res_dr
-    }
+{
+    name:'СБП',
+    value:data.result.res_sbp,
+    tariff:data.sbpTariff + '%'
+},
+{
+    name:'Эквайринг',
+    value:data.result.res_eq,
+    tariff:data.eqTariff + '%*'
+},
+{
+    name:'Цифровой рубль',
+    value:data.result.res_dr,
+    tariff:data.drTariff + '%'
+}
 ];
 
 
@@ -144,15 +159,29 @@ document.getElementById('nameRight').textContent =
 document.getElementById('valueRight').textContent =
     results[2].value.toFixed(2) + ' ₽';
 
+document.getElementById('tariffCenter').textContent =
+    'Тариф: ' + results[0].tariff;
+
+document.getElementById('tariffLeft').textContent =
+    'Тариф: ' + results[1].tariff;
+
+document.getElementById('tariffRight').textContent =
+    'Тариф: ' + results[2].tariff;
+
 document.getElementById('commentCenter').textContent =
     'Наиболее выгодный вариант для выбранных параметров.';
 
-document.getElementById('commentLeft').textContent =
-    'Облагается НДС';
+document.getElementById('commentLeft').innerHTML =
+    'Облагается НДС.<br><br>' +
+    'Информация о тарифах по эквайрингу взята из ' +
+    '<a href="https://www.banki.ru/news/daytheme/?id=11024261" target="_blank">' +
+    'статьи' +
+    '</a>';
 
 document.getElementById('commentRight').textContent =
     'Альтернативный способ расчётов. Будет доступен с 1 сентября 2026 года.';
-    
+
+
 
 /*results.sort((a, b) => a.value - b.value);
 

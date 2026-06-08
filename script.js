@@ -35,10 +35,41 @@ document
             period,
             sum
         );
+        let sbpTariff;
+let drTariff;
+let eqTariff = equiring;
+
+switch (type) {
+
+    case 2.1:
+    case 2.2:
+    case 2.3:
+    case 2.4:
+    case 2.5:
+    case 2.6:
+    case 2.7:
+    case 2.8:
+        sbpTariff = sbp[1];
+        drTariff = digital_rub[0];
+        break;
+
+    case 3.1:
+        sbpTariff = sbp[0];
+        drTariff = digital_rub[0];
+        break;
+
+    case 4.1:
+        sbpTariff = sbp[2];
+        drTariff = digital_rub[1];
+        break;
+}
         localStorage.setItem(
             'calcResult',
             JSON.stringify({
                 result,
+                sbpTariff,
+                drTariff,
+                eqTariff,
              amountFormatted:
             sum.toLocaleString('ru-RU') + ' ₽',
 
@@ -63,22 +94,24 @@ function calculate(type, period, sum){
     case 2.6:
     case 2.7:
     case 2.8:
-    case 2.9:
         res_sbp = period * (sum * sbp[1] / 100),
         res_dr = period * (sum * digital_rub[0] / 100),
-        res_eq = period * (sum * equiring / 100)
+        res_eq = period * (sum * equiring / 100),
+	res_eq = res_eq + res_eq * 22 / 100
         return {res_sbp,res_dr,res_eq};
 
     case 3.1:
         res_sbp = period * (sum * sbp[0] / 100),
         res_dr = period * (sum * digital_rub[0] / 100),
-        res_eq = period * (sum * equiring / 100)
+        res_eq = period * (sum * equiring / 100),
+	res_eq = res_eq + res_eq * 22 / 100
         return {res_sbp,res_dr,res_eq};
 
     case 4.1:
         res_sbp = period * (sum * sbp[2] / 100),
         res_dr = period * (sum * digital_rub[1] / 100),
-        res_eq = period * (sum * equiring / 100)
+        res_eq = period * (sum * equiring / 100),
+	res_eq = res_eq + res_eq * 22 / 100
         return {res_sbp,res_dr,res_eq};
   default:
     console.log("Error");
@@ -103,11 +136,9 @@ function getType(type){
         return "Страхование"
     case 2.8:
         return "Инвестиционные фонды, УК, НПФ"
-    case 2.9:
-        return "Самозанятый"
-    case 3.1:
-        return "ЖКХ"
     case 4.1:
+        return "ЖКУ"
+    case 3.1:
         return "Иное"
   default:
     console.log("Error");
