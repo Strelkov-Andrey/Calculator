@@ -1,124 +1,96 @@
+
 <!DOCTYPE html>
 <html lang="ru">
-
 <head>
-
     <meta charset="UTF-8">
-
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
-
-    <title>Калькулятор СБП</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Калькулятор расчета комиссий</title>
     <link rel="stylesheet" href="style.css">
-
 </head>
-
 <body>
-
 <div class="page">
 
-    <h1 class="title">
-        Калькулятор расчета комиссий при оплате СБП
+   <div class="card hub-card">
+
+    <div class="hero-block">
+
+    <h1 class="calculator-title">
+        Калькулятор
     </h1>
 
-    <div class="cards">
+    <p class="calculator-description">
+       Рассчитайте ориентировочную стоимость приема безналичных платежей с использованием эквайринга, Системы быстрых платежей и Цифрового рубля
+    </p>
 
-        <!-- ЛЕВЫЙ БЛОК -->
+    <a href="calculator.html" class="start-btn">
+        Перейти к расчету
+    </a>
 
-        <div class="card">
-	    <h2 align="center">Тарифы Банка России</h2>
+</div>
+    <div class="hub-divider"></div>
 
-            <div class="tariff-list">
+  <div class="calculator-help">
 
-                <div class="logo-container">
-                <img
-                	src="images/10andmore.png"
-                	alt="Логотип"
-                	class="logo"
-                >
-                </div>
-
-		<div class="sbp-link">
-
-                Тарифы для организаций при оплате покупок<br><br>
-
-                <a
-                    href="http://www.cbr.ru/psystem/sfp/"
-                    target="_blank"
-                >
-                    СБП
-                </a>
-		
-            </div>
-	</div>
-        </div>
-
-        <!-- ЦЕНТР -->
-
-        <div class="card center-card">
-
-            <div class="calculator-title">
-                Калькулятор
-            </div>
-
-            <div class="calculator-description">
-
-                Рассчитайте ориентировочную стоимость
-                и сравните варианты обслуживания
-                с использованием системы быстрых платежей и цифрового рубля.
-
-            </div>
-
-            <a
-                href="calculator.html"
-                class="start-btn"
-            >
-                Перейти к расчёту
-            </a>
-
-        </div>
-
-        <!-- ПРАВЫЙ БЛОК -->
-
-        <div class="card">
-
-            <h2 align="center">Система быстрых платежей</h2>
-
-            <div class="logo-container">
-
-               <img
-                src="images/logo_sbp_2.png"
-                alt="Логотип"
-                class="logo"
-                >
-
-            </div>
-
-            <div class="sbp-link">
-
-                Официальный сайт СБП<br><br>
-
-                <a
-                    href="https://sbp.nspk.ru/"
-                    target="_blank"
-                >
-                    sbp.nspk.ru
-                </a>
-
-            </div>
-
-        </div>
-
+    <div class="help-title">
+        Как работает калькулятор
     </div>
-<div class="main-disclaimer">
-	Калькулятор рассчитывает комиссию исходя из максимально установленных тарифов 
-	в СБП (0,2% / 0,4% / 0,7%) и Цифровом рубле (0,2% / 0,3%), но экономия может быть выше, т.к. комиссия за одну 
-	транзакцию не может превышать 1500 руб.(не более 10 руб. за ЖКУ). 
+
+    <div class="help-text">
+       Калькулятор рассчитывает комиссию исходя из усредненного тарифа эквайринга*, тарифов, установленных Банком России 
+	в СБП (0,2% / 0,4% / 0,7%) и Цифровом рубле (0,2% / 0,3%), а также общего объема операций за выбранный период.
+        Итоговая комиссия может отличаться. Подробнее уточняйте в обслуживающей кредитной организации. <br><br>
+	 *Информация о тарифах по 
+        <a href="https://www.banki.ru/news/daytheme/?id=11024261" target="_blank">
+        эквайрингу
+        </a>
     </div>
+
 </div>
 
-</body>
 
+
+<div class="hub-divider"></div>
+ 
+<div class="links-section">
+
+    <h3 class="section-title">
+        Полезные ссылки
+    </h3>
+
+    <div class="links-list">
+
+        <a class="compact-link"
+           href="http://www.cbr.ru/PSystem/payment_system/2023-03-17/"
+           target="_blank">
+
+            <img src="images/lessthan10.svg">
+
+            <div>
+                <strong>Тарифы Банка России</strong>
+                <span>Максимальный размер комиссий, взимаемых кредитными организациями за прием оплаты по СБП с юридических лиц</span>
+            </div>
+
+        </a>
+
+        <a class="compact-link"
+           href="https://sbp.nspk.ru/"
+           target="_blank">
+
+            <img src="images/logo_sbp2.jpg">
+
+            <div>
+                <strong>Система быстрых платежей</strong>
+                <span>Официальный сайт СБП</span>
+            </div>
+
+        </a>
+
+    </div>
+</div>
+</div>
+
+</div>
+
+</div>
+</body>
 </html>

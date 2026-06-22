@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Итоги расчёта</title>
+    <title>Итоги расчета</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -11,12 +11,15 @@
 <div class="container">
     <div class="calculator-card result-card">
 
-        <h1>Итоги расчёта</h1>
+        <h1>Итоги расчета</h1>
 
     <div class="results-row">
 
     <div class="info-block side-card">
-        <span id="nameLeft"></span>
+       <div class="card-header">
+            <img id="logoLeft" class="payment-logo" alt="">
+            <span id="nameLeft"></span>
+        </div>
 
         <strong id="valueLeft"></strong>
 
@@ -28,10 +31,12 @@
     </div>
 
     <div class="info-block winner-card">
-          <div class="winner-badge">
-        ЛУЧШИЙ ВАРИАНТ
-          </div>
-        <span id="nameCenter"></span>
+          
+        <div class="card-header">
+            <img id="logoCenter" class="payment-logo" alt="">
+            <span id="nameCenter"></span>
+        </div>
+
         <strong id="valueCenter"></strong>
 
 
@@ -45,7 +50,11 @@
     </div>
 
     <div class="info-block side-card">
-        <span id="nameRight"></span>
+        <div class="card-header">
+            <img id="logoRight" class="payment-logo" alt="">
+            <span id="nameRight"></span>
+        </div>
+
         <strong id="valueRight"></strong>
 
         <div class="card-footer">
@@ -62,7 +71,7 @@
 <div class="calculation-summary">
 
     <div class="summary-title">
-        Параметры расчёта
+        Параметры расчета
     </div>
 
     <div class="summary-grid">
@@ -73,7 +82,7 @@
         </div>
 
         <div class="summary-item">
-            <span class="summary-label">Период</span>
+            <span class="summary-label">Период для расчета</span>
             <span class="summary-value" id="summaryPeriod"></span>
         </div>
 
@@ -86,9 +95,9 @@
 
 </div>
     <div class="result-disclaimer">
-    Расчёт выполнен на основании введённых данных и носит справочный характер.
-    Полученные значения являются приблизительными и не являются официальным
-    расчётом стоимости услуг или банковских комиссий.
+    Расчет выполнен на основании введенных данных и носит справочный характер.
+    Полученные значения не являются официальным
+    расчетом стоимости услуг или банковских комиссий. За точным расчетом обратитесь в обслуживающую кредитную организацию.
     </div>
     
 </div>
@@ -98,7 +107,7 @@
         href="calculator.html"
         class="action-btn secondary-btn"
     >
-        Новый расчёт
+        Новый расчет
     </a>
 
     <a
@@ -144,42 +153,66 @@ const results = [
 document.getElementById('nameCenter').textContent =
     results[0].name;
 
+if (data.amount < 334){
 document.getElementById('valueCenter').textContent =
     results[0].value.toFixed(2) + ' ₽';
+
+document.getElementById('valueLeft').textContent =
+    data.result.res_eq_min.toFixed(2) +
+    ' - ' +
+    data.result.res_eq_max.toFixed(2) +
+    ' ₽';
+
+document.getElementById('valueRight').textContent =
+    results[2].value.toFixed(2) + ' ₽';
+}
+else {
+	document.getElementById('valueCenter').textContent =
+    results[0].value.toLocaleString('ru-RU', {maximumFractionDigits: 0}) + ' ₽';
+
+	document.getElementById('valueLeft').textContent =
+    data.result.res_eq_min.toLocaleString('ru-RU', {maximumFractionDigits: 0}) +
+    ' - ' +
+    data.result.res_eq_max.toLocaleString('ru-RU', {maximumFractionDigits: 0}) +
+    ' ₽';
+
+document.getElementById('valueRight').textContent =
+    results[2].value.toLocaleString('ru-RU',{maximumFractionDigits: 0}) + ' ₽';
+}
 
 document.getElementById('nameLeft').textContent =
     results[1].name;
 
-document.getElementById('valueLeft').textContent =
-    results[1].value.toFixed(2) + ' ₽';
-
 document.getElementById('nameRight').textContent =
     results[2].name;
-
-document.getElementById('valueRight').textContent =
-    results[2].value.toFixed(2) + ' ₽';
 
 document.getElementById('tariffCenter').textContent =
     'Тариф: ' + results[0].tariff;
 
 document.getElementById('tariffLeft').textContent =
-    'Тариф: ' + results[1].tariff;
+    'Тариф: ' + data.eqTariff_min + ' - ' + data.eqTariff_max + '%*';
 
 document.getElementById('tariffRight').textContent =
     'Тариф: ' + results[2].tariff;
 
 document.getElementById('commentCenter').textContent =
-    'Наиболее выгодный вариант для выбранных параметров.';
+	'Наиболее выгодный вариант для выбранных параметров.';
 
 document.getElementById('commentLeft').innerHTML =
-    'Облагается НДС.<br><br>' +
-    'Информация о тарифах по эквайрингу взята из ' +
-    '<a href="https://www.banki.ru/news/daytheme/?id=11024261" target="_blank">' +
-    'статьи' +
-    '</a>';
+    'С учетом НДС<br><br>' +
+    '*Конкретный тариф зависит от банка, вашего оборота и условий договора.';
 
-document.getElementById('commentRight').textContent =
-    'Альтернативный способ расчётов. Будет доступен с 1 сентября 2026 года.';
+document.getElementById('commentRight').innerHTML =
+    'Доступен с 1 сентября 2026 года. Подключение через <a href="http://www.cbr.ru/fintech/dr/#a_123392" target="_blank">банки-участники</a>';
+
+document.getElementById('logoCenter').src =
+    'images/mini_logo_sbp.png';
+
+document.getElementById('logoLeft').src =
+    'images/equiring2.jpg';
+
+document.getElementById('logoRight').src =
+    'images/digital_ruble_red_logo.svg';
 
 
 
@@ -207,10 +240,10 @@ document.getElementById('commentCenter').textContent =
     'Наиболее выгодный вариант для выбранных параметров.';
 
 document.getElementById('commentLeft').textContent =
-    'Альтернативный способ расчётов.';
+    'Альтернативный способ расчетов.';
 
 document.getElementById('commentRight').textContent =
-    'Наименее выгодный вариант по результатам расчёта.';*/
+    'Наименее выгодный вариант по результатам расчета.';*/
 </script>
 
 </body>

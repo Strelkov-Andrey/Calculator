@@ -12,7 +12,7 @@
 
     <!-- Подключение CSS -->
     <link rel="stylesheet" href="style.css">
-</head>
+<script type="text/javascript" src="https://ff.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=18ySNoIULTG5XKCRd019rSRiXlcgnnQ3XE_inMpQBE16VIn_Upi4wKgEjpm72PRim_YN6w-XdEitOGfKYFBQjB8mUAH12Nm7v_6aAI84JyDXMknXunGvnt1AHRczuMcA19vz4DZhS0_KvvEkmWSOMIvJ9mA_udJhqVlQ3259hSlskMqB93ay25jD9ji4HSwbkxUmDUh0-NBtzpobabXSpxh-57Fc9V12R00-3t_cIzs28xohhjlvWX7-GV9ttXlvntO2z0IBCHK06CqNnAV72RmJeNOi42W_87nihyOmwejDIzX4v7WYKAbHVwwbKudV" charset="UTF-8"></script></head>
 <body>
 
     <div class="container">
@@ -25,65 +25,219 @@
             <form id="calculatorForm">
 
                 <div class="form-group">
-    <label>Выберите Ваш вид деятельности</label>
+    <label>Выберите Ваш вид деятельности (от этого зависит размер комиссии)</label>
 
+    <div id="selectedActivity" class="selected-activity">
+    Вид деятельности не выбран
+    </div>
                     <div class="type-list">
+			                                <details class="activity-group">
 
-                        <label class="radio-item">
-                            <input type="radio" name="type" value="2.1" checked>
-                            <span>Образование</span>
-                        </label>
+                               <summary>
+                                    <span class="group-title">
+                                        Потребительские товары и товары повседневного спроса
+                                    </span>
 
-                        <label class="radio-item">
-                            <input type="radio" name="type" value="2.3">
-                            <span>Транспорт</span>
-                        </label>
+                                    <span class="selected-item"></span>
+                                </summary>
 
-                        <label class="radio-item">
-                            <input type="radio" name="type" value="2.4">
-                            <span>Телеком</span>
-                        </label>
+                                <label class="radio-item">
+                                    <input type="radio" name="type" value="241">
+                                    <span>Предприятия быстрого питания, закусочные, буфеты</span>
+                                </label>
 
-                        <label class="radio-item">
-                            <input type="radio" name="type" value="2.5">
-                            <span>Потребительские товары</span>
-                        </label>
+                                <label class="radio-item">
+                                    <input type="radio" name="type" value="242">
+                                    <span>Бытовая техника и электроника</span>
+                                </label>
 
-                        <label class="radio-item">
-                            <input type="radio" name="type" value="2.6">
-                            <span>Медицина</span>
-                        </label>
+                                <label class="radio-item">
+                                    <input type="radio" name="type" value="243">
+                                    <span>Бакалейные магазины, супермаркеты, универмаги, оптово-розничные гипермаркеты</span>
+                                </label>
 
-                        <label class="radio-item">
-                            <input type="radio" name="type" value="2.7">
-                            <span>Страхование</span>
-                        </label>
+                                <label class="radio-item">
+                                    <input type="radio" name="type" value="244">
+                                    <span>Одежда и аксессуары, обувные магазины</span>
+                                </label>
 
-			<label class="radio-item">
-                            <input type="radio" name="type" value="4.1">
-                            <span>ЖКУ</span>
-                        </label>
+                                <label class="radio-item">
+                                    <input type="radio" name="type" value="245">
+                                    <span>Магазины спорттоваров</span>
+                                </label>
 
-                        <label class="radio-item">
-                            <input type="radio" name="type" value="2.8">
-                            <span>Инвестиционные фонды, УК, НПФ</span>
-                        </label>
+                                <label class="radio-item">
+                                    <input type="radio" name="type" value="246">
+                                    <span>Товары для дома, магазины игрушек</span>
+                                </label>
 
-			<label class="radio-item">
-                            <input type="radio" name="type" value="2.2">
-                            <span>Благотворительность</span>
-                        </label>
+                                <label class="radio-item">
+                                    <input type="radio" name="type" value="247">
+                                    <span>Книжные магазины</span>
+                                </label>
+                            </details>
+                        
+			    <label class="radio-item">
+                                    <input type="radio" name="type" value="28">
+                                    <span>Аптеки</span>
+                            </label>
 
-                        <label class="radio-item">
-                            <input type="radio" name="type" value="3.1">
-                            <span>Иное</span>
-                        </label>
+                            <details class="activity-group">
 
+                                <summary>
+                                    <span class="group-title">
+                                        Услуги медицинских и образовательных учреждений
+                                    </span>
+
+                                    <span class="selected-item"></span>
+                                </summary>
+
+                                <label class="radio-item">
+                                    <input type="radio" name="type" value="211">
+                                    <span>Служба скорой помощи</span>
+                                </label>
+
+                                <label class="radio-item">
+                                    <input type="radio" name="type" value="212">
+                                    <span>Медицинское оборудование и расходные материалы</span>
+                                </label>
+
+                                <label class="radio-item">
+                                    <input type="radio" name="type" value="213">
+                                    <span>Услуги врачей</span>
+                                </label>
+                                
+                                <label class="radio-item">
+                                    <input type="radio" name="type" value="214">
+                                    <span>Оптика, оптические товары и очки</span>
+                                </label>
+
+                                <label class="radio-item">
+                                    <input type="radio" name="type" value="215">
+                                    <span>Госпитали, больницы</span>
+                                </label>
+
+                                <label class="radio-item">
+                                    <input type="radio" name="type" value="216">
+                                    <span>Школы, колледжи, университеты, профессиональные училища</span>
+                                </label>
+
+                                <label class="radio-item">
+                                    <input type="radio" name="type" value="217">
+                                    <span>Иные учебные заведения</span>
+                                </label>
+
+                                <label class="radio-item">
+                                    <input type="radio" name="type" value="218">
+                                    <span>Услуги ухода за детьми</span>
+                                </label>
+
+                            </details>
+
+                            <details class="activity-group">
+
+                               <summary>
+                                    <span class="group-title">
+                                        Услуги транспортной инфрастуктуры
+                                    </span>
+
+                                    <span class="selected-item"></span>
+                                </summary>
+
+                                <label class="radio-item">
+                                    <input type="radio" name="type" value="221">
+                                    <span>Пригородные и местные пассажирские перевозки, включая электропоезда, маршрутные такси</span>
+                                </label>
+
+                                <label class="radio-item">
+                                    <input type="radio" name="type" value="222">
+                                    <span>Регулярные пассажирские автобусные перевозки</span>
+                                </label>
+
+                                <label class="radio-item">
+                                    <input type="radio" name="type" value="223">
+                                    <span>Такси</span>
+                                </label>
+
+                                <label class="radio-item">
+                                    <input type="radio" name="type" value="224">
+                                    <span>АЗС</span>
+                                </label>
+                            </details>
+
+                            <details class="activity-group">
+
+                               <summary>
+                                    <span class="group-title">
+                                        Телекоммуникационные, информационные и почтовые услуги
+                                    </span>
+
+                                    <span class="selected-item"></span>
+                                </summary>
+
+                                <label class="radio-item">
+                                    <input type="radio" name="type" value="231">
+                                    <span>Услуги связи</span>
+                                </label>
+
+                                <label class="radio-item">
+                                    <input type="radio" name="type" value="232">
+                                    <span>Услуги телеграфной связи</span>
+                                </label>
+                            </details>
+
+
+                    
+                            <details class="activity-group">
+
+                               <summary>
+                                    <span class="group-title">
+                                        Благотворительные организации, Страхование, Инвестиции
+                                    </span>
+
+                                    <span class="selected-item"></span>
+                                </summary>
+
+                                <label class="radio-item">
+                                    <input type="radio" name="type" value="25">
+                                    <span>Благотворительные, общественные организации, социальные службы</span>
+                                </label>
+
+                                <label class="radio-item">
+                                    <input type="radio" name="type" value="26">
+                                    <span>Страхование</span>
+                                </label>
+
+                                <label class="radio-item">
+                                    <input type="radio" name="type" value="27">
+                                    <span>Инвестиционные фонды, УК, НПФ</span>
+                                </label>
+                            </details>
+                            
+                            
+                            <label class="radio-item">
+                                    <input type="radio" name="type" value="41">
+                                    <span>Жилищно-коммунальнные услуги</span>
+                            </label>
+                            <label class="radio-item">
+                                    <input type="radio" name="type" value="31">
+                                    <span>Иное</span>
+                            </label>
+                    </div>
+                    <div class="activity-error" id="activityError">
+    Выберите вид деятельности
+                    </div>
+                    <div class="activity-hint">
+                        Не нашли подходящую категорию?
+                        Уточнить вид деятельности можно по
+                        <a href="OPKC_SBP.pdf" target="_blank">
+                        ссылке  
+                        </a>
                     </div>
                 </div>
-
+		
                 <div class="form-group">
-                <label>Период</label>
+                <label>Выберите период для расчета</label>
 
                 <div class="period-selector">
 
@@ -124,16 +278,18 @@
                 </div>
             </div>
 
+		
                 <div class="form-group">
-                    <label for="amount">Введите среднюю выручку за месяц</label>
+                    <label for="amount">Средняя выручка за месяц</label>
                     <input
                         type="text"
                         id="amount"
                         inputmode="numeric"
-                        oninput="this.value=this.value.replace(/[^0-9]/g,'')"
+                        oninput= "digits_int(this,event)"
                         placeholder="Например: 1000"
                         required
-                    >
+			autocomplete = "off"
+                    />
                 </div>
 
                 <button type="submit" class="btn">
@@ -146,6 +302,27 @@
     </div>
 
     <script src = "script.js"></script>
+    <script>
+	function digits_int(input, event) {
+		const oldValue = input.value;
+		const oldPos = input.selectionStart;
+		const digitsBefore = oldValue.slice(0, oldPos).replace(/\D/g,'').length;
+		const digits = oldValue.replace(/\D/g,'');
+		if (!digits) {input.value='';
+			input.setSelectionRange(0,0);
+			return;}
+		const newValue = digits.replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+		input.value = newValue;
+        input.dataset.rawValue = digits;
+		let pos = 0;
+		let counted = 0;
+		while (pos < newValue.length && counted < digitsBefore) {
+			if(/\d/.test(newValue.charAt(pos))) counted++;
+			pos++;}
+		input.setSelectionRange(pos,pos);
+	}
+	
+    </script>
 
 </body>
 </html>
